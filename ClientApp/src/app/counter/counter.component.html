@@ -1,0 +1,39 @@
+<h1>Counter</h1>
+
+<p>This is a simple example of an Angular component.</p>
+
+<p aria-live="polite">Current count: <strong>{{ currentCount }}</strong></p>
+
+<button class="btn btn-primary" (click)="incrementCounter()">Increment</button>
+
+<br />
+
+<p>Use directive for permission check</p>
+
+<div *hasPermission="[1,2,3]">
+  this element has permission
+</div>
+
+
+<div *hasPermission="[1,3,5]">
+  this element does not have permission
+</div>
+
+
+<br />
+<p>Use ngrxLet instead of ngIf | async</p>
+<ng-container *rxLet="
+              timer$;
+              let randomNumbers;
+              rxError: error;
+              rxSuspense: suspense;
+              rxComplete: complete;
+              ">
+  index: {{ randomNumbers.index }}<br />
+  randomValue: {{ randomNumbers.randomValue }}<br />
+  randomValue again:{{ randomNumbers.randomValue }}
+</ng-container>
+<ng-template #error>ERROR</ng-template>
+<ng-template #complete>COMPLETE</ng-template>
+<ng-template #suspense>SUSPENSE</ng-template>
+
